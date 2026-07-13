@@ -97,4 +97,7 @@
 #### Kelengkapan Administrasi Terintegrasi: Daftar periksa ( checklist) dokumen pengiriman tingkat lanjut yang sudah siap, seperti Bill of Lading (B/L), Certificate of Origin (COO), verifikasi Phytosanitary & Fumigation, serta inspeksi SGS/Sucofindo.
 #### Jaminan Keamanan: Teks kecil berlogo perisai biru di bagian bawah yang meyakinkan pembeli bahwa transaksi dilindungi oleh sistem Letter of Credit (L/C) perbankan internasional dan Rekening Escrow (rekening bersama) terverifikasi.
 
+### 6. FITUR DALAM ADMIN
+![alt text](?raw=true)
+
 
