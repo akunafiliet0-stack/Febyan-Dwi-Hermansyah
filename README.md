@@ -116,6 +116,7 @@
 #### 8. Update Stok
 #### Pada kolom Aksi tersedia kolom input untuk memasukkan jumlah stok terbaru beserta tombol Update yang digunakan untuk menyimpan perubahan stok tersebut. Fitur ini memungkinkan admin memperbarui jumlah persediaan secara cepat ketika terjadi penambahan stok baru atau setelah adanya penjualan, sehingga data stok yang ditampilkan pada sistem selalu sesuai dengan kondisi persediaan yang sebenarnya.
 
-### 7. 
+### 7. INFORMASI ADMIN
+![alt text](?raw=true)
 
 
