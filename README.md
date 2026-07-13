@@ -117,6 +117,12 @@
 #### Pada kolom Aksi tersedia kolom input untuk memasukkan jumlah stok terbaru beserta tombol Update yang digunakan untuk menyimpan perubahan stok tersebut. Fitur ini memungkinkan admin memperbarui jumlah persediaan secara cepat ketika terjadi penambahan stok baru atau setelah adanya penjualan, sehingga data stok yang ditampilkan pada sistem selalu sesuai dengan kondisi persediaan yang sebenarnya.
 
 ### 7. INFORMASI ADMIN
-![alt text](?raw=true)
+![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/Fitur%20dalam%20admin.png?raw=true)
+#### 1. Informasi Kantor Pusat
+#### Pada bagian kiri footer ditampilkan informasi mengenai kantor pusat Nusantara Agri-Exchange Headquarters yang berfungsi sebagai identitas dan pusat operasional perusahaan. Informasi yang disediakan meliputi alamat kantor yang berada di Menara Agro Nusantara Lt. 18, Zona Bisnis Internasional, Jl. Nasional II Bandung, Indonesia, alamat Corporate Email sebagai media komunikasi resmi perusahaan, International Hotline yang dapat dihubungi oleh pelanggan dari berbagai negara, serta nomor WhatsApp Trade Specialist yang digunakan untuk memberikan layanan konsultasi dan komunikasi terkait perdagangan secara lebih cepat dan mudah.
+#### 2. Jam Operasional Perdagangan
+#### Pada bagian kanan footer ditampilkan informasi mengenai Jam Operasional Perdagangan sebagai panduan waktu pelayanan perusahaan. Layanan perdagangan beroperasi setiap Senin hingga Jumat pukul 08.00–17.00 WIB, sedangkan layanan logistik dan pelabuhan beroperasi setiap Sabtu pukul 08.00–13.00 WIB. Selain itu, terdapat keterangan bahwa pembeli internasional yang mengalami perbedaan zona waktu yang ekstrem tetap dapat memperoleh layanan melalui formulir enkripsi WhatsApp yang tersedia selama 24 jam, sehingga komunikasi dengan pelanggan dari berbagai negara tetap dapat dilakukan.
+#### 3. Footer dan Informasi Hak Cipta
+#### Pada bagian paling bawah halaman terdapat footer yang memuat informasi hak cipta dan tautan kebijakan perusahaan. Footer menampilkan keterangan bahwa seluruh hak cipta sistem dimiliki oleh PT Nusantara Agri-Exchange beserta deskripsi bahwa sistem digunakan untuk administrasi bisnis dan rantai pasok berkelanjutan. Selain itu, disediakan beberapa tautan penting seperti Syarat & Ketentuan Perdagangan, Kebijakan Privasi Data GDPR, serta Regulasi Bea Cukai & Ekspor yang dapat diakses pengguna untuk memperoleh informasi mengenai aturan, kebijakan privasi, dan regulasi perdagangan yang berlaku.
 
 
