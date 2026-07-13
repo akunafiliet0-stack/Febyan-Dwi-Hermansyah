@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Febyan Dwi Hermansyah</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <span>🌐 Indonesia Vans Community</span>
+            <div class="top-bar-right">
+                <span id="serverTime">🕒 GMT+7 (Bandung)</span>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">🌐 ID / EN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo-container" data-page="home">
+                <div class="logo-box">
+                    <span class="logo-text-icon">IVC</span>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name" data-i18n="brandName">INDONESIA</span>
+                    <span class="brand-sub" data-i18n="brandSub">Vans Community</span>
+                </div>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#" class="nav-link active" data-page="home" data-i18n="navHome">Beranda</a>
+                <a href="#" class="nav-link" data-page="about" data-i18n="navAbout">Sejarah & Visi</a>
+                <a href="#" class="nav-link" data-page="products" data-i18n="navProducts">Katalog Produk</a>
+                <a href="#" class="nav-link" data-page="analytics" data-i18n="navAnalytics">Data & Probabilitas</a>
+                <a href="#" class="nav-link" data-page="checkout" data-i18n="navCheckout">Pembelian</a>
+                <a href="#" class="nav-link" data-page="admin" id="adminNavLink" style="display:none;" data-i18n="navAdmin">⚙️ Admin</a>
+                <a href="#" class="nav-link" id="loginNavLink" data-i18n="navLogin">🔑 Login</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb" id="breadcrumb">
+        <div class="container">
+             <span id="breadcrumbText" data-i18n="breadcrumbHome">Beranda</span>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- LOADING OVERLAY -->
+    <div class="modal-overlay" id="loadingOverlay" style="z-index: 999999;">
+        <div style="text-align:center; color:white;">
+            <div class="spinner"></div>
+            <p id="loadingText" style="margin-top:16px; font-weight:600; font-size:16px; letter-spacing:1px;">Memproses Data...</p>
+        </div>
+    </div>
+
+    <!-- PAYMENT GATEWAY MODAL (SIMULATION) -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-box" style="max-width: 400px; padding: 0; overflow: hidden; border-radius: 12px;">
+            <div style="background: var(--primary-deep); color: var(--accent-gold-light); padding: 20px; text-align: center;">
+                <h3 style="margin: 0; font-family: 'Playfair Display', serif; font-size: 22px;">NAX Secure Payment</h3>
+                <p style="font-size: 12px; opacity: 0.8; margin-top: 4px;">Gateway Pembayaran B2B Resmi</p>
+            </div>
+            <div style="padding: 24px;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Total Pembayaran (FOB)</p>
+                    <h2 id="payModalTotal" style="font-size: 34px; color: var(--primary-deep); margin: 0;">$0.00</h2>
+                </div>
+                <div style="border-top: 1px dashed var(--border-color); border-bottom: 1px dashed var(--border-color); padding: 16px 0; margin-bottom: 24px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 13px;">
+                        <span style="color: var(--text-muted);">Metode Pembayaran:</span>
+                        <strong id="payModalMethod" style="text-align: right; max-width: 60%;">...</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                        <span style="color: var(--text-muted);">ID Transaksi:</span>
+                        <strong style="color: var(--success-green);">NAX-<span id="payModalTxId"></span></strong>
+                    </div>
+                </div>
+                <button id="btnConfirmPayment" class="btn btn-primary" style="width: 100%; font-size: 15px; padding: 14px; margin-bottom: 10px;">Bayar Sekarang</button>
+                <button id="btnCancelPayment" class="btn btn-secondary" style="width: 100%; border: none; font-size: 13px;">Batalkan Transaksi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUCCESS MODAL -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-box" style="text-align: center; max-width: 420px;">
+            <div style="width: 80px; height: 80px; background: var(--success-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 44px; margin: 0 auto 20px auto;">✓</div>
+            <h3 style="margin-bottom: 12px; color: var(--success-green); font-size: 24px;">Pembayaran Berhasil!</h3>
+            <p style="margin-bottom: 24px; font-size: 14px; color: var(--text-muted); line-height: 1.5;">
+                Dana telah divalidasi. Anda akan segera diarahkan ke sistem WhatsApp kami untuk meneruskan dokumen tagihan.
+                <br><br>
+                <strong>Mengarahkan otomatis dalam <span id="waRedirectCountdown" style="color:var(--primary-deep); font-size:16px;">3</span> detik...</strong>
+            </p>
+            <button class="btn btn-primary" id="btnManualWaRedirect" style="width:100%; margin-bottom: 12px; background: #25d366; border-color: #25d366;">💬 Buka WhatsApp Sekarang</button>
+            <button class="btn btn-secondary" id="successModalClose" style="width:100%; border: none;">Tutup & Kembali ke Beranda</button>
+        </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-box">
+            <button class="modal-close" id="loginModalClose">&times;</button>
+            <h3 data-i18n="loginTitle">🔐 Akses Sistem</h3>
+            <p data-i18n="loginDesc">Masuk sebagai Pembeli atau Admin untuk mengakses fitur penuh.</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginName" data-i18n="loginNameLabel">Nama / Username</label>
+                    <input type="text" id="loginName" placeholder="Masukkan nama Anda" required />
+                </div>
+                <div class="form-group">
+                    <label for="loginRole" data-i18n="loginRoleLabel">Login Sebagai</label>
+                    <select id="loginRole">
+                        <option value="buyer" data-i18n="loginRoleBuyer">🛒 Pembeli</option>
+                        <option value="admin" data-i18n="loginRoleAdmin">⚙️ Admin</option>
+                    </select>
+                </div>
+                <div class="form-group" id="adminPasswordGroup" style="display:none;">
+                    <label for="loginPassword" data-i18n="loginPasswordLabel">Kode Akses Admin</label>
+                    <input type="password" id="loginPassword" placeholder="Masukkan kode admin" />
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="loginSubmit">Masuk</button>
+            </form>
+            <p class="modal-hint" data-i18n="loginHint">* Admin: masukkan kode "nax2026" untuk akses penuh.</p>
+        </div>
+    </div>
+
+    <!-- RFQ MODAL -->
+    <div class="modal-overlay" id="rfqModal">
+        <div class="modal-box">
+            <button class="modal-close" id="rfqModalClose">&times;</button>
+            <h3 data-i18n="rfqTitle">📩 Minta Penawaran (RFQ)</h3>
+            <p data-i18n="rfqDesc">Isi detail kebutuhan Anda, tim kami akan merespon dalam 1x24 jam.</p>
+            <form id="rfqForm">
+                <input type="hidden" id="rfqProductId" />
+                <div class="form-group">
+                    <label for="rfqCompany" data-i18n="rfqCompanyLabel">Nama Perusahaan *</label>
+                    <input type="text" id="rfqCompany" required placeholder="PT Global Import Corp" />
+                </div>
+                <div class="form-group">
+                    <label for="rfqEmail" data-i18n="rfqEmailLabel">Email Korporat *</label>
+                    <input type="email" id="rfqEmail" required placeholder="trade@company.com" />
+                </div>
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label for="rfqTargetPrice" data-i18n="rfqTargetPriceLabel">Target Harga (USD/MT atau USD/KG)</label>
+                        <input type="number" id="rfqTargetPrice" step="0.01" placeholder="Contoh: 6.50" />
+                    </div>
+                    <div class="form-group">
+                        <label for="rfqVolume" data-i18n="rfqVolumeLabel">Volume (MT)</label>
+                        <input type="number" id="rfqVolume" step="0.5" placeholder="Contoh: 5" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rfqIncoterms" data-i18n="rfqIncotermsLabel">Incoterms Pilihan</label>
+                    <select id="rfqIncoterms">
+                        <option value="FOB">FOB - Pelabuhan Indonesia</option>
+                        <option value="CIF">CIF - Pelabuhan Tujuan</option>
+                        <option value="CFR">CFR - Tanpa Asuransi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rfqNotes" data-i18n="rfqNotesLabel">Catatan Tambahan</label>
+                    <textarea id="rfqNotes" rows="2" placeholder="Sertifikasi khusus, target pengiriman, dll."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="rfqSubmit">Kirim RFQ via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="mainContent">
+
+        <!-- HOME -->
+        <section id="page-home" class="page-section active">
+            <div class="hero-section">
+                <div class="container hero-container">
+                    <div class="hero-content">
+                        <span class="badge" data-i18n="heroBadge">Global B2B Supply Chain</span>
+                        <h1 data-i18n="heroTitle">Menghubungkan Keunggulan Komparatif Komoditas Nusantara ke Pasar Global</h1>
+                        <p data-i18n="heroDesc">Nusantara Agri-Exchange (NAX) memodernisasi rantai pasok ekspor Kopi Spesialti dan Rempah premium Indonesia melalui otomatisasi administrasi bisnis, transparansi data, dan pengapalan terintegrasi.</p>
+                        <div class="hero-actions">
+                            <a href="#" class="btn btn-primary" data-page="products" data-i18n="heroBtnExplore">Eksplorasi Produk</a>
+                            <a href="#" class="btn btn-secondary" data-page="about" data-i18n="heroBtnRegulasi">Pelajari Regulasi</a>
+                        </div>
+                    </div>
+<div class="hero-visual">
+                        <img src="images/Beranda.jpg" alt="Beranda" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOCIAL PROOF BANNER -->
+            <div class="social-proof">
+                <div class="container">
+                    <div class="proof-scroll">
+                        <span class="proof-item">✅ ISO 9001 Certified</span>
+                        <span class="proof-item">🌿 Rainforest Alliance</span>
+                        <span class="proof-item">🔬 HACCP Compliant</span>
+                        <span class="proof-item">🚢 Global Logistics Partners</span>
+                        <span class="proof-item">📜 EU Organic Ready</span>
+                        <span class="proof-item">🏅 Sucofindo Pre-shipment</span>
+                        <span class="proof-item">📦 24/7 Cold Chain Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="page-about" class="page-section">
+            <div class="about-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="sub-title" data-i18n="aboutSub">Profil Korporasi</span>
+                        <h2 data-i18n="aboutTitle">Sejarah, Akar, & Komitmen Kami</h2>
+                        <div class="heading-line"></div>
+                    </div>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <h3 data-i18n="aboutHead">Menembus Batas Birokrasi Perdagangan Internasional</h3>
+                            <p data-i18n="aboutP1">Didirikan dengan misi fundamental untuk mengoptimalkan <strong>Keunggulan Komparatif (Comparative Advantage)</strong> komoditas agrikultur lokal, Nusantara Agri-Exchange lahir dari kesadaran akan besarnya kesenjangan antara petani komoditas unggulan Indonesia dengan pembeli berskala internasional.</p>
+                            <p data-i18n="aboutP2">Pada awalnya, rantai pasok ekspor kopi dan rempah didera oleh inefisiensi administrasi, manipulasi harga oleh tengkulak berlapis, serta rumitnya pemenuhan standar kepabeanan (Customs) global. NAX hadir mengintegrasikan teknologi informasi guna memangkas seluruh hambatan tersebut, menciptakan jalur logistik yang tangkas (agile), transparan, dan berkeadilan ekonomi.</p>
+                            <p data-i18n="aboutP3">Hari ini, kami mengonsolidasikan ratusan koperasi petani dari Sumatra hingga Maluku, memastikan setiap biji kopi dan butir rempah diproses melalui kendali mutu yang ketat, terdokumentasi secara digital, dan siap memenuhi standar sirkular ekonomi global.</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="page-products" class="page-section">
+            <div class="products-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="sub-title" data-i18n="productsSub">Katalog Product</span>
+                        <h2 data-i18n="productsTitle">Product Sepatu 100% Original</h2>
+                        <div class="heading-line"></div>
+                        <p class="section-desc" data-i18n="productsDesc">Jelajahi koleksi kopi spesialti dan rempah pilihan dengan standar ekspor tertinggi.</p>
+                    </div>
+
+                    <!-- TOOLBAR -->
+                    <div class="catalog-toolbar">
+                        <div class="search-wrapper">
+                            <input type="text" id="searchInput" placeholder="Cari produk..." class="search-input" data-i18n-placeholder="searchPlaceholder" />
+                            <span class="search-icon">🔍</span>
+                        </div>
+                        <div class="filter-group">
+                            <select id="filterRating" class="filter-select">
+                                <option value="all" data-i18n="filterAll">⭐ Semua Rating</option>
+                                <option value="4" data-i18n="filter4">4+ Bintang</option>
+                                <option value="4.5" data-i18n="filter45">4.5+ Bintang</option>
+                            </select>
+                            <select id="sortSelect" class="filter-select">
+                                <option value="name-asc" data-i18n="sortNameAsc">Nama A-Z</option>
+                                <option value="name-desc" data-i18n="sortNameDesc">Nama Z-A</option>
+                                <option value="price-asc" data-i18n="sortPriceAsc">Harga Terendah</option>
+                                <option value="price-desc" data-i18n="sortPriceDesc">Harga Tertinggi</option>
+                                <option value="rating-desc" data-i18n="sortRating">Rating Tertinggi</option>
+                                <option value="sold-desc" data-i18n="sortSold">Terjual Terbanyak</option>
+                                <option value="stock-desc" data-i18n="sortStock">Stok Terbanyak</option>
+                            </select>
+                            <select id="currencySelect" class="filter-select">
+                                <option value="USD">💵 USD</option>
+                                <option value="IDR">🇮🇩 IDR</option>
+                                <option value="EUR">🇪🇺 EUR</option>
+                            </select>
+                        </div>
+                        <span class="catalog-result" id="catalogResult">Menampilkan 0 produk</span>
+                    </div>
+
+
+
+                    <!-- GRID -->
+                    <div class="products-grid" id="productsGrid"></div>
+
+
+                    <!-- PAGINATION -->
+                    <div class="pagination" id="pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANALYTICS -->
+        <section id="page-analytics" class="page-section">
+            <div class="analytics-section">
+                <div class="container">
+                    <div class="analytics-wrapper">
+                        <div class="analytics-content">
+                            <span class="badge badge-gold" data-i18n="analyticsBadge">Smart B2B Infrastructure</span>
+                            <h2 data-i18n="analyticsTitle">Keputusan Bisnis Berbasis Data & Prediksi Probabilitas Pasar</h2>
+                            <p data-i18n="analyticsDesc">Kami tidak sekadar menjual komoditas; platform NAX dilengkapi dengan mesin komputasi statistik untuk membantu pembeli internasional menganalisis probabilitas tren harga, fluktuasi pasokan musiman, serta manajemen risiko rantai pasok secara <em>real-time</em>.</p>
+                            <ul class="feature-list">
+                                <li data-i18n="analyticsLi1"><strong>Prediksi Volume Pasokan:</strong> Perhitungan matematis berbasis tren cuaca dan historis panen.</li>
+                                <li data-i18n="analyticsLi2"><strong>Transparansi Fakta & Peristiwa:</strong> Log aktivitas pengadaan, sertifikasi uji lab, dan pelacakan kontainer terintegrasi.</li>
+                                <li data-i18n="analyticsLi3"><strong>Otomatisasi Administrasi Dokumen:</strong> Penerbitan <em>Commercial Invoice</em>, <em>Packing List</em>, dan COO secara instan.</li>
+                            </ul>
+                            <div class="mini-chart">
+                                <h4 data-i18n="chartTitle">📈 Tren Harga Komoditas (Real-time)</h4>
+                                <div class="chart-container">
+                                    <canvas id="priceChart" width="400" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-visual">
+                            <img src="images/analytics-chart.jpg" alt="Visualisasi Data & Probabilitas" style="width:100%; height:100%; object-fit:cover; border-radius:8px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CHECKOUT -->
+        <section id="page-checkout" class="page-section">
+            <div class="checkout-section">
+                <div class="container">
+                    <div class="checkout-grid">
+                        <div class="checkout-form-container">
+                            <h3 data-i18n="checkoutTitle">Sistem Formulir Ekspor & Integrasi WhatsApp</h3>
+                            <p class="form-instruction" data-i18n="checkoutDesc">Lengkapi data administrasi bisnis berikut. Sistem otomatis menyusun draf pesanan formal yang akan diteruskan langsung ke WhatsApp Enterprise Trade Specialist kami.</p>
+
+                            <div class="cart-section">
+                                <h4 data-i18n="cartTitle">🛒 Keranjang Belanja</h4>
+                                <div id="cartItems" class="cart-items">
+                                    <p class="cart-empty" data-i18n="cartEmpty">Belum ada produk dipilih.</p>
+                                </div>
+                                <div class="cart-total">
+                                    <span data-i18n="cartTotal">Total Estimasi (FOB):</span>
+                                    <strong id="cartTotalValue">$0.00</strong>
+                                </div>
+                                <button class="btn btn-secondary btn-clear-cart" id="clearCartBtn" data-i18n="cartClear">Kosongkan Keranjang</button>
+                            </div>
+
+                            <form id="b2bOrderForm">
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label for="companyName" data-i18n="formCompany">Nama Perusahaan / Institusi *</label>
+                                        <input type="text" id="companyName" required placeholder="Contoh: Global Import Corp Ltd" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerName" data-i18n="formBuyer">Nama Perwakilan Pembeli *</label>
+                                        <input type="text" id="buyerName" required placeholder="Contoh: Jack / Hamdan" />
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label for="buyerEmail" data-i18n="formEmail">Email Korporat *</label>
+                                        <input type="email" id="buyerEmail" required placeholder="trade@company.com" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="buyerPhone" data-i18n="formPhone">Nomor WhatsApp/Telepon Aktif *</label>
+                                        <input type="tel" id="buyerPhone" required placeholder="+6285860095139" />
+                                    </div>
+                                </div>
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label for="destinationCountry" data-i18n="formCountry">Negara Tujuan Pengapalan *</label>
+                                        <input type="text" id="destinationCountry" required placeholder="Rotterdam, Belanda" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="incoterms" data-i18n="formIncoterms">Incoterms Pemilihan *</label>
+                                        <select id="incoterms">
+                                            <option value="FOB (Free On Board)">FOB - Pelabuhan Indonesia</option>
+                                            <option value="CIF (Cost, Insurance, Freight)">CIF - Pelabuhan Tujuan</option>
+                                            <option value="CFR (Cost and Freight)">CFR - Tanpa Asuransi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- METODE PEMBAYARAN -->
+                                <div class="form-group">
+                                    <label for="paymentMethod" data-i18n="formPayment">Metode Pembayaran *</label>
+                                    <select id="paymentMethod" required>
+                                        <option value="QRIS / E-Wallet (GoPay, OVO, DANA)">📱 QRIS / E-Wallet (GoPay, OVO, DANA)</option>
+                                        <option value="Virtual Account / Transfer Bank (BCA, Mandiri, BRI)">🏦 Virtual Account / Transfer Bank</option>
+                                        <option value="International Letter of Credit (L/C)">🌍 International Letter of Credit (L/C)</option>
+                                        <option value="Telegraphic Transfer (T/T)">💸 Telegraphic Transfer (T/T)</option>
+                                        <option value="Escrow Service">🔒 Escrow Service</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label data-i18n="formCommodity">Komoditas yang Dipilih (dari keranjang) *</label>
+                                    <input type="text" id="selectedCommodity" readonly placeholder="Tambahkan produk dari katalog" class="readonly-input" />
+                                </div>
+
+                                <div class="form-group-row">
+                                    <div class="form-group">
+                                        <label for="orderQuantity" data-i18n="formQty">Volume Pesanan (untuk item pertama)</label>
+                                        <input type="number" id="orderQuantity" min="1" placeholder="Jumlah kuantitas" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quantityUnit" data-i18n="formUnit">Satuan Volume</label>
+                                        <input type="text" id="quantityUnit" readonly value="Metric Ton (MT)" class="readonly-input" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="additionalNotes" data-i18n="formNotes">Catatan Tambahan Spesifikasi / Sertifikasi</label>
+                                    <textarea id="additionalNotes" rows="3" placeholder="Instruksi khusus pengemasan atau sertifikasi tambahan..."></textarea>
+                                </div>
+
+                                <button type="submit" class="btn-submit-checkout" data-i18n="checkoutSubmit">🚀 Kirim Data & Proses Pembayaran</button>
+                            </form>
+                        </div>
+
+                        <div class="checkout-summary-container">
+                            <div class="summary-card">
+                                <h4 data-i18n="summaryTitle">B2B Gate-Pass Clearance</h4>
+                                <div class="summary-line"></div>
+                                <div class="invoice-simulation">
+                                    <h5 data-i18n="summaryInvoice">Draf Invoice Proforma Sementara:</h5>
+                                    <div class="invoice-row">
+                                        <span data-i18n="summaryVendor">Platform Vendor:</span>
+                                        <strong>PT Nusantara Agri-Exchange</strong>
+                                    </div>
+                                    <div class="invoice-row">
+                                        <span data-i18n="summaryItems">Jumlah Item:</span>
+                                        <span id="summaryItemCount">0</span>
+                                    </div>
+                                    <div class="invoice-row">
+                                        <span data-i18n="summaryPayment">Metode Pembayaran:</span>
+                                        <span id="summaryPaymentMethod">-</span>
+                                    </div>
+                                    <div class="invoice-row font-total">
+                                        <span data-i18n="summaryTotal">Total Nilai Komoditas (FOB):</span>
+                                        <span id="summaryTotalValue">$0.00</span>
+                                    </div>
+                                </div>
+                                <div class="compliance-box">
+                                    <h5 data-i18n="complianceTitle">📋 Kelengkapan Administrasi Terintegrasi:</h5>
+                                    <label><input type="checkbox" checked disabled /> Bill of Lading (B/L) Automation Ready</label>
+                                    <label><input type="checkbox" checked disabled /> Certificate of Origin (COO) Form E/K Ready</label>
+                                    <label><input type="checkbox" checked disabled /> Phytosanitary & Fumigation Verified</label>
+                                    <label><input type="checkbox" checked disabled /> SGS / Sucofindo Pre-shipment Inspection Allocation</label>
+                                </div>
+                                <div class="security-badge" data-i18n="securityBadge">🛡️ Transaksi aman dilindungi sistem Letter of Credit (L/C) perbankan internasional & Rekening Escrow Terverifikasi.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADMIN PAGE -->
+        <section id="page-admin" class="page-section">
+            <div class="admin-page-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="sub-title" data-i18n="adminSub">Panel Administrasi</span>
+                        <h2 data-i18n="adminTitle">Manajemen Stok, Harga & Visibilitas Produk</h2>
+                        <div class="heading-line"></div>
+                        <p class="section-desc" data-i18n="adminDesc">Kelola stok, harga, dan tampilan produk. Perubahan akan langsung tersimpan dan terintegrasi dengan katalog.</p>
+                    </div>
+
+                    <div class="admin-page-content">
+                        <div class="admin-stats">
+                            <div class="stat-card">
+                                <h4 id="adminTotalProducts">0</h4>
+                                <p data-i18n="adminStatProducts">Total Produk</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4 id="adminTotalStock">0</h4>
+                                <p data-i18n="adminStatStock">Total Stok</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4 id="adminLowStock">0</h4>
+                                <p data-i18n="adminStatLow">Produk Stok Rendah (&lt;10)</p>
+                            </div>
+                        </div>
+
+                        <div class="admin-table-wrapper">
+                            <table class="admin-table" id="adminTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-i18n="adminThCommodity">Komoditas</th>
+                                        <th data-i18n="adminThStock">Stok</th>
+                                        <th data-i18n="adminThSold">Terjual</th>
+                                        <th data-i18n="adminThPrice">Harga (USD)</th>
+                                        <th data-i18n="adminThVisibility">Visibilitas</th>
+                                        <th data-i18n="adminThAction">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminTableBody"></tbody>
+                            </table>
+                        </div>
+
+                        <div class="admin-actions">
+                            <button class="btn btn-primary" id="adminResetStockBtn" data-i18n="adminReset">↺ Reset Semua Stok ke Default</button>
+                            <span class="admin-status" id="adminStatus">✅ Semua perubahan tersimpan otomatis.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CONTACT -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info-block">
+                    <h3 data-i18n="contactHead">Nusantara Agri-Exchange Headquarters</h3>
+                    <p class="address">🏢 Menara Agro Nusantara Lt. 18, Zona Bisnis Internasional,<br />Jl. Nasional II Bandung, Indonesia</p>
+                    <div class="contact-details">
+                        <p>📧 <strong data-i18n="contactEmail">Corporate Email:</strong> vans@second.com</p>
+                        <p>📞 <strong data-i18n="contactPhone">International Hotline:</strong> +62 (21) 555-8932</p>
+                        <p>💬 <strong data-i18n="contactWA">WhatsApp Trade Specialist:</strong> +62 822-4023-2647</p>
+                    </div>
+                </div>
+                <div class="contact-hours-block">
+                    <h3 data-i18n="contactHours">Jam Operasional Perdagangan</h3>
+                    <p data-i18n="contactMonFri">Senin - Jumat: 08:00 - 17:00 (WIB)</p>
+                    <p data-i18n="contactSat">Sabtu (Layanan Logistik & Pelabuhan): 08:00 - 13:00 (WIB)</p>
+                    <p><em data-i18n="contactNote">*Untuk pembeli internasional dengan perbedaan zona waktu ekstrim, diprioritaskan via formulir enkripsi WhatsApp 24 jam.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p data-i18n="footerCopy">&copy; 2026 PT Nusantara Agri-Exchange. Seluruh Hak Cipta Dilindungi. Sistem Administrasi Bisnis & Rantai Pasok Berkelanjutan.</p>
+            <div class="footer-links">
+                <a href="#" data-i18n="footerTerms">Syarat & Ketentuan Perdagangan</a> |
+                <a href="#" data-i18n="footerPrivacy">Kebijakan Privasi Data GDPR</a> |
+                <a href="#" data-i18n="footerCustoms">Regulasi Bea Cukai & Ekspor</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
