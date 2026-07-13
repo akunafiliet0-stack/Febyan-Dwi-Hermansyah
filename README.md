@@ -58,4 +58,16 @@
 #### Spesifikasi Bahan: Kotak info khusus yang merinci bahan penyusun sepatu, mulai dari bagian atas (Upper), kombinasi warna (Colorway/Color), hingga bagian sol (Sole/Lining).
 #### Deskripsi Singkat: Ulasan teks pendek di bagian paling bawah kartu yang memberikan gambaran singkat mengenai karakteristik produk dan kecocokannya untuk gaya berpakaian sehari-hari.
 ### 4. DATA & PORBALITAS
-![alt text](?raw=true)
+![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/data%20porbalitas.png?raw=true)
+#### 1. Navigasi Halaman
+#### Menu Data & Probabilitas pada bilah navigasi atas kini aktif (ditandai dengan garis bawah), menunjukkan posisi halaman yang sedang diakses.
+#### 2. Bagian Utama: Keputusan Bisnis & Analisis Pasar
+#### Bagian ini menjelaskan kemampuan sistem komputasi statistik yang ditawarkan oleh platform (ditandai dengan label SMART B2B INFRASTRUCTURE):
+#### Mesin Komputasi Statistik: Deskripsi teks menjelaskan bahwa platform ini dilengkapi alat untuk membantu pengguna internasional menganalisis probabilitas tren harga, fluktuasi pasokan musiman, serta manajemen risiko rantai pasok secara real-time.
+#### Tiga Fitur Unggulan (Poin Centang Hijau):
+#### Prediksi Volume Pasokan: Fitur perhitungan matematis yang memprediksi ketersediaan pasokan berdasarkan tren cuaca dan data historis (pada teks tertulis "historis panen").
+#### Transparansi Fakta & Peristiwa: Fitur yang menyediakan log aktivitas pengadaan, sertifikasi uji laboratorium, hingga sistem pelacakan kontainer yang terintegrasi.
+#### Otomatisasi Administrasi Dokumen: Fitur pembuatan dokumen ekspor/bisnis penting secara instan, seperti Commercial Invoice, Packing List, dan COO (Certificate of Origin).
+#### 3. Elemen Visual (Placeholder)
+#### Di bagian kanan bawah, terdapat teks "Visualisasi Data & Probabilitas". Elemen ini merupakan image placeholder atau teks alternatif (alt-text) yang menandakan bahwa bagian tersebut nantinya akan menampilkan grafik, diagram chart, atau visualisasi data statistik interaktif untuk mendukung teks di sebelah kirinya.
+
