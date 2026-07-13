@@ -40,3 +40,6 @@
 #### Acara kumpul-kumpul (meetup).
 #### Kegiatan amal (charity event).
 #### Transformasi Digital: Mengikuti perkembangan zaman, IVC memanfaatkan media sosial dan platform daring untuk menghubungkan seluruh anggotanya dari Sabang sampai Merauke agar bisa saling bertukar cerita mengenai koleksi mereka dengan lebih mudah.
+
+### 3. KATALOG PRODUK
+![alt text](?raw=true)
