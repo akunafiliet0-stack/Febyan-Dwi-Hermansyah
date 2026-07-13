@@ -43,3 +43,18 @@
 
 ### 3. KATALOG PRODUK
 ![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/katalog.png?raw=true)
+#### 1. Fitur Pencarian dan Filter (Search & Filter Bar)
+#### Komponen ini diletakkan di bagian atas daftar produk untuk membantu pengguna menyortir pilihan mereka:
+#### Kolom Pencarian (Search Bar): Fitur bertuliskan "Cari produk..." yang berfungsi untuk mencari model sepatu tertentu secara langsung dengan mengetikkan kata kunci.
+#### Filter Rating: Menu dropdown "Semua Rating" untuk menyaring produk berdasarkan ulasan atau penilaian bintang tertinggi.
+#### Pengurutan (Sorting): Menu dropdown "Nama A-Z" untuk mengurutkan tampilan produk berdasarkan urutan abjad nama produk.
+#### Pengubah Mata Uang: Tombol dengan ikon dompet/uang bertuliskan "USD" untuk menentukan atau melihat format mata uang harga produk.
+#### Indikator Jumlah: Teks "Menampilkan 10 dari 10 produk" yang memberikan informasi total item yang masuk dalam daftar katalog saat itu.
+#### 2. Informasi pada Kartu Produk (Product Cards)
+#### Katalog ini menampilkan produk dalam bentuk kartu informasi terstruktur. Berdasarkan tiga contoh produk yang terlihat (Vans Authentic Black/White, Vans Authentic Tropical Leaf Print, dan Vans Era Marshmallow Off-White), setiap kartu memiliki fitur informasi berikut:
+#### Visual & Label Khusus: Foto produk yang dilengkapi dengan badge gaya di pojok kanan atas gambar (seperti Classic Core, Limited Print, atau Clean Aesthetic) serta jumlah stok/edisi yang tersedia di pojok kanan bawah gambar (seperti 85 PAIR, 50 PAIR, 40 PAIR).
+#### Nama dan Seri Produk: Judul utama produk yang menjelaskan tipe dan variasi warna sepatu secara spesifik.
+#### Statistik Ulasan & Penjualan: Menampilkan nilai rating (skala angka seperti 4.9 atau 4.8), jumlah total ulasan masuk, serta volume produk yang sudah terjual.
+#### Spesifikasi Bahan: Kotak info khusus yang merinci bahan penyusun sepatu, mulai dari bagian atas (Upper), kombinasi warna (Colorway/Color), hingga bagian sol (Sole/Lining).
+#### Deskripsi Singkat: Ulasan teks pendek di bagian paling bawah kartu yang memberikan gambaran singkat mengenai karakteristik produk dan kecocokannya untuk gaya berpakaian sehari-hari.
+### 4.
