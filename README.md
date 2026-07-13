@@ -27,3 +27,5 @@
 #### pelajari Regulasi (tombol terang): Mengarahkan pengguna untuk membaca aturan, panduan, atau informasi lebih lanjut terkait komunitas.
 
 #### Elemen Visual: Di sebelah kanan terdapat gambar besar logo ikonik "Vans Off The Wall" edisi kolaborasi dengan Thrasher (lengkap dengan ornamen api), yang sangat merepresentasikan kultur skateboard dan gaya jalanan (streetwear).
+### SEJARAH DAN VISI MISI
+![alt text](?raw=true)
