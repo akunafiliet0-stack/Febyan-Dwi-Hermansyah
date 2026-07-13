@@ -2,7 +2,7 @@
 #### NAMA              : FEBYAN DWI HERMANSYAH
 #### NIM               : 209250008
 #### PRODI             : ADMINISTRASI BISNIS 1
-#### DOSEN PENGAMPUH   : YOKI OKTORIAN SUKARDI
+#### DOSEN PENGAMPUH   : YOKI OKTORIAN SUKARDI S.Kom.,M.A.B
 
 ## FILTER FILTER 
 ### 1. BERANDA
@@ -98,6 +98,24 @@
 #### Jaminan Keamanan: Teks kecil berlogo perisai biru di bagian bawah yang meyakinkan pembeli bahwa transaksi dilindungi oleh sistem Letter of Credit (L/C) perbankan internasional dan Rekening Escrow (rekening bersama) terverifikasi.
 
 ### 6. FITUR DALAM ADMIN
-![alt text](?raw=true)
+![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/Fitur%20dalam%20admin.png?raw=true)
+#### 1. Header / Navigasi
+#### Pada bagian paling atas halaman terdapat navbar yang berfungsi sebagai menu navigasi utama website Indonesia Vans Community (IVC). Navbar ini berisi menu Beranda, Sejarah & Visi, Katalog Produk, Data & Probabilitas, Pembelian, Admin, dan Keluar. Setiap menu memiliki fungsi yang berbeda, seperti mengakses halaman utama, melihat informasi perusahaan, menampilkan katalog produk, melihat data analisis, melakukan pembelian, mengelola data sebagai admin, serta keluar dari akun admin.
+#### 2. Judul Halaman
+#### Di bawah navbar terdapat judul "Manajemen Stok, Harga & Visibilitas Produk" yang menjelaskan fungsi utama halaman ini, yaitu sebagai pusat pengelolaan data produk. Di bawah judul terdapat deskripsi yang menjelaskan bahwa admin dapat mengelola stok, harga, dan tampilan produk, serta setiap perubahan yang dilakukan akan langsung tersimpan dan terintegrasi dengan halaman katalog sehingga informasi produk selalu diperbarui secara otomatis.
+#### 3. Dashboard Ringkasan
+#### Halaman ini menampilkan tiga kartu informasi yang berfungsi sebagai ringkasan kondisi produk. Kartu pertama menampilkan Total Produk sebanyak 10/10, yang menunjukkan jumlah produk yang tersedia di dalam sistem. Kartu kedua menampilkan Total Stok sebanyak 1.135, yaitu jumlah keseluruhan stok dari semua produk. Kartu ketiga menampilkan Produk Stok Rendah (<10) dengan nilai 0, yang berarti tidak ada produk yang memiliki stok di bawah batas minimum sehingga seluruh produk masih memiliki persediaan yang mencukupi.
+#### 4. Tabel Manajemen Produk
+#### Di bawah dashboard terdapat tabel yang digunakan sebagai media pengelolaan seluruh data produk. Tabel ini terdiri dari beberapa kolom, yaitu nomor urut (#), Komoditas yang berisi nama produk, Stok yang menunjukkan jumlah persediaan, Terjual yang menunjukkan jumlah produk yang telah dibeli pelanggan, Harga (USD) untuk menampilkan dan mengubah harga produk, Visibilitas untuk mengatur apakah produk ditampilkan pada katalog, serta Aksi yang digunakan untuk memperbarui data stok produk.
+#### 5. Daftar Produk
+#### Tabel menampilkan berbagai produk Vans yang tersedia, seperti Vans Old Skool – Checkerboard (Leather), Vans Authentic – Black/White Classic, Vans Slip-On – Striped Canvas, Vans Sk8-Hi – Suede Brown, dan Vans Old Skool – Denim Blue. Setiap produk disertai informasi mengenai jumlah stok yang tersedia, jumlah produk yang telah terjual, harga jual dalam mata uang dolar Amerika (USD), serta status visibilitas produk sehingga admin dapat memantau kondisi setiap produk secara lebih mudah.
+#### 6. Tombol Update Harga
+#### Pada kolom Harga (USD) tersedia kolom input yang memungkinkan admin mengubah harga setiap produk secara langsung. Setelah harga baru dimasukkan, admin dapat menekan tombol Update untuk menyimpan perubahan tersebut. Fitur ini mempermudah proses penyesuaian harga tanpa harus mengubah data secara manual pada sistem sehingga harga pada katalog akan langsung diperbarui.
+#### 7. Pengaturan Visibilitas
+#### Kolom Visibilitas menyediakan tombol berwarna hijau bertuliskan "Tampilkan" yang menunjukkan bahwa produk saat ini masih ditampilkan pada katalog. Melalui fitur ini, admin dapat mengatur apakah suatu produk tetap ditampilkan kepada pengunjung atau disembunyikan dari katalog sesuai dengan kebutuhan, misalnya ketika produk sedang tidak dijual atau sedang dalam proses pembaruan.
+#### 8. Update Stok
+#### Pada kolom Aksi tersedia kolom input untuk memasukkan jumlah stok terbaru beserta tombol Update yang digunakan untuk menyimpan perubahan stok tersebut. Fitur ini memungkinkan admin memperbarui jumlah persediaan secara cepat ketika terjadi penambahan stok baru atau setelah adanya penjualan, sehingga data stok yang ditampilkan pada sistem selalu sesuai dengan kondisi persediaan yang sebenarnya.
+
+### 7. 
 
 
