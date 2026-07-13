@@ -57,4 +57,5 @@
 #### Statistik Ulasan & Penjualan: Menampilkan nilai rating (skala angka seperti 4.9 atau 4.8), jumlah total ulasan masuk, serta volume produk yang sudah terjual.
 #### Spesifikasi Bahan: Kotak info khusus yang merinci bahan penyusun sepatu, mulai dari bagian atas (Upper), kombinasi warna (Colorway/Color), hingga bagian sol (Sole/Lining).
 #### Deskripsi Singkat: Ulasan teks pendek di bagian paling bawah kartu yang memberikan gambaran singkat mengenai karakteristik produk dan kecocokannya untuk gaya berpakaian sehari-hari.
-### 4.
+### 4. DATA & PORBALITAS
+![alt text](?raw=true)
