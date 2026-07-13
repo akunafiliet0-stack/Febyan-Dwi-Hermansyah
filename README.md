@@ -29,7 +29,7 @@
 #### Elemen Visual: Di sebelah kanan terdapat gambar besar logo ikonik "Vans Off The Wall" edisi kolaborasi dengan Thrasher (lengkap dengan ornamen api), yang sangat merepresentasikan kultur skateboard dan gaya jalanan (streetwear).
 ### 2. SEJARAH DAN VISI MISI
 ![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/sejarah.png?raw=true)
-1. Navigasi Halaman
+#### 1. Navigasi Halaman
 #### Menu Sejarah & Visi di bilah navigasi atas kini aktif (ditandai dengan garis bawah), menunjukkan posisi halaman yang sedang diakses oleh pengguna.2. Bagian Utama: "Perjalanan Kami"
 #### Bagian ini menceritakan sejarah singkat dan transformasi IVC yang dibagi ke dalam tiga poin utama:
 #### Asal-Usul & Latar Belakang: IVC lahir dari kecintaan bersama terhadap budaya skateboard, musik, dan gaya hidup santai khas California yang melekat pada merek Vans sejak 1966. Komunitas ini awalnya dibentuk oleh sekumpulan kecil skater dan kolektor sepatu di beberapa kota, sebelum akhirnya berkembang pesat.
