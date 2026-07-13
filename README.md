@@ -70,4 +70,6 @@
 #### Otomatisasi Administrasi Dokumen: Fitur pembuatan dokumen ekspor/bisnis penting secara instan, seperti Commercial Invoice, Packing List, dan COO (Certificate of Origin).
 #### 3. Elemen Visual (Placeholder)
 #### Di bagian kanan bawah, terdapat teks "Visualisasi Data & Probabilitas". Elemen ini merupakan image placeholder atau teks alternatif (alt-text) yang menandakan bahwa bagian tersebut nantinya akan menampilkan grafik, diagram chart, atau visualisasi data statistik interaktif untuk mendukung teks di sebelah kirinya.
+### 5. CEKOUT
+![alt text](?raw=true)
 
