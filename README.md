@@ -30,7 +30,8 @@
 ### 2. SEJARAH DAN VISI MISI
 ![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/sejarah.png?raw=true)
 #### 1. Navigasi Halaman
-#### Menu Sejarah & Visi di bilah navigasi atas kini aktif (ditandai dengan garis bawah), menunjukkan posisi halaman yang sedang diakses oleh pengguna.2. Bagian Utama: "Perjalanan Kami"
+#### Menu Sejarah & Visi di bilah navigasi atas kini aktif (ditandai dengan garis bawah), menunjukkan posisi halaman yang sedang diakses oleh pengguna.
+#### 2. Bagian Utama: "Perjalanan Kami"
 #### Bagian ini menceritakan sejarah singkat dan transformasi IVC yang dibagi ke dalam tiga poin utama:
 #### Asal-Usul & Latar Belakang: IVC lahir dari kecintaan bersama terhadap budaya skateboard, musik, dan gaya hidup santai khas California yang melekat pada merek Vans sejak 1966. Komunitas ini awalnya dibentuk oleh sekumpulan kecil skater dan kolektor sepatu di beberapa kota, sebelum akhirnya berkembang pesat.
 #### Keanggotaan yang Beragam: Wadah ini merangkul ribuan pecinta Vans dari berbagai latar belakang di Indonesia, mulai dari skater jalanan, seniman, hingga kolektor sneaker.
