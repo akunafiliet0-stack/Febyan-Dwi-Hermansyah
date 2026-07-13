@@ -117,7 +117,7 @@
 #### Pada kolom Aksi tersedia kolom input untuk memasukkan jumlah stok terbaru beserta tombol Update yang digunakan untuk menyimpan perubahan stok tersebut. Fitur ini memungkinkan admin memperbarui jumlah persediaan secara cepat ketika terjadi penambahan stok baru atau setelah adanya penjualan, sehingga data stok yang ditampilkan pada sistem selalu sesuai dengan kondisi persediaan yang sebenarnya.
 
 ### 7. INFORMASI ADMIN
-![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/Fitur%20dalam%20admin.png?raw=true)
+![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/Informasi%20admin.pngpng?raw=true)
 #### 1. Informasi Kantor Pusat
 #### Pada bagian kiri footer ditampilkan informasi mengenai kantor pusat Nusantara Agri-Exchange Headquarters yang berfungsi sebagai identitas dan pusat operasional perusahaan. Informasi yang disediakan meliputi alamat kantor yang berada di Menara Agro Nusantara Lt. 18, Zona Bisnis Internasional, Jl. Nasional II Bandung, Indonesia, alamat Corporate Email sebagai media komunikasi resmi perusahaan, International Hotline yang dapat dihubungi oleh pelanggan dari berbagai negara, serta nomor WhatsApp Trade Specialist yang digunakan untuk memberikan layanan konsultasi dan komunikasi terkait perdagangan secara lebih cepat dan mudah.
 #### 2. Jam Operasional Perdagangan
