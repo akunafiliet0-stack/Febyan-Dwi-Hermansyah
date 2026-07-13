@@ -71,5 +71,30 @@
 #### 3. Elemen Visual (Placeholder)
 #### Di bagian kanan bawah, terdapat teks "Visualisasi Data & Probabilitas". Elemen ini merupakan image placeholder atau teks alternatif (alt-text) yang menandakan bahwa bagian tersebut nantinya akan menampilkan grafik, diagram chart, atau visualisasi data statistik interaktif untuk mendukung teks di sebelah kirinya.
 ### 5. CEKOUT
-![alt text](?raw=true)
+![alt text](https://github.com/akunafiliet0-stack/Febyan-Dwi-Hermansyah/blob/main/images/pembelian.png?raw=true)
+
+#### 1. Navigasi Halaman
+#### Menu Pembelian pada bilah navigasi atas dalam keadaan aktif (bergaris bawah), menandakan pengguna sedang berada di tahap akhir untuk menyelesaikan transaksi.
+#### 2. Sisi Kiri: Keranjang Belanja & Formulir Pesanan
+#### Bagian ini berfokus pada pengumpulan data pembeli dan rincian barang yang akan dipesan:
+#### Sistem Formulir Ekspor & Integrasi WhatsApp: Penjelasan singkat bahwa data formulir akan disusun menjadi draf pesanan formal yang akan dikirimkan langsung ke spesialis perdagangan melalui WhatsApp.
+#### Keranjang Belanja: Menampilkan status barang yang akan dibeli. Saat ini tampilannya menunjukkan "Belum ada produk dipilih" dengan "Total Estimasi (FOB)" bernilai $0.00. Terdapat juga tombol "Kosongkan Keranjang" untuk mereset pesanan.
+#### Formulir Data Pembeli (Input Fields): Kolom isian wajib (ditandai dengan bintang *) yang harus dilengkapi pengguna, meliputi:
+#### Nama Perusahaan / Institusi
+#### Nama Perwakilan Pembeli
+#### Email Korporat
+#### Nomor WhatsApp/Telepon Aktif
+#### Negara Tujuan Pengapalan
+#### Incoterms Pemilihan (Terdapat opsi dropdown, contohnya "FOB - Pelabuhan Indonesia")
+#### Metode Pembayaran
+#### 3. Sisi Kanan: Ringkasan Pesanan & Administrasi
+#### Bagian panel kanan berfungsi sebagai ringkasan ( summary) dan memberikan jaminan keamanan transaksi:
+#### Draf Invoice Proforma Sementara: Panel berisi ringkasan tagihan yang mencakup:
+#### Platform Vendor (tertulis PT Nusantara Agri-Exchange pada template ini).
+#### Jumlah Item (kuantitas barang).
+#### Metode Pembayaran (mendukung QRIS dan E-Wallet seperti GoPay, OVO, DANA).
+#### Total Nilai Komoditas (FOB).
+#### Kelengkapan Administrasi Terintegrasi: Daftar periksa ( checklist) dokumen pengiriman tingkat lanjut yang sudah siap, seperti Bill of Lading (B/L), Certificate of Origin (COO), verifikasi Phytosanitary & Fumigation, serta inspeksi SGS/Sucofindo.
+#### Jaminan Keamanan: Teks kecil berlogo perisai biru di bagian bawah yang meyakinkan pembeli bahwa transaksi dilindungi oleh sistem Letter of Credit (L/C) perbankan internasional dan Rekening Escrow (rekening bersama) terverifikasi.
+
 
